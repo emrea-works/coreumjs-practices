@@ -12,9 +12,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
      // Let's define the modules we are going to use:
      const {nftbeta, nft} = coreumClient.queryClients;
-     
-     
-     const nfts = await nftbeta.nfts("", "")
+
+
+     const nfts = await nftbeta.nfts(
+       // First arg: Class ID<string>
+       "",
+       // Second arg: The Owner Address<string>
+       "")
     //  const allNfts = await nft.class("")
 
 

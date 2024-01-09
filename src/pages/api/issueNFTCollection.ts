@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         issuer: issuer,
         //Unique for each user collection
         symbol: "NEW2",
-        name: "My testing collectiion",
+        name: "My testing collection",
         description: "a new collection of NFTs",
         uri: "http://test.com/",
         uriHash: "somehash",

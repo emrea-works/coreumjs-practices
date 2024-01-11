@@ -26,7 +26,7 @@ export const Header = () => {
 
   return (
     <header>
-      <nav className="bg-gray-800 p-4">
+      <nav className="bg-transparent p-4">
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo text on the left */}
           <a href="/" className="text-white text-lg font-semibold">

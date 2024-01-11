@@ -1,9 +1,33 @@
-import IssueNFTCollection from "@/comps/IssueNFTCollection";
+import { useState } from "react";
+import { buttonClass } from "@/styles/classNames";
+
+const IssueNFTCollection = () => {
+  const [receipt, setReceipt] = useState(null);
+  const apiHandler = async () => {
+    try {
+      const response = await fetch("/api/issueNFTCollection");
+      const data = await response.json();
+      setReceipt(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  return (
+    <div className="space-y-4">
+      <h2>Issue NFT</h2>
+      <button className={buttonClass} onClick={apiHandler}>
+        Go
+      </button>
+      <pre>{receipt ? JSON.stringify(receipt, null, 4) : "{...}"}</pre>
+    </div>
+  );
+};
 
 export default function Page() {
 
   return (
-    <div className="container mx-auto mt-10">
+    <div className="container mx-auto mt-10 px-4">
       <IssueNFTCollection />
     </div>
   );

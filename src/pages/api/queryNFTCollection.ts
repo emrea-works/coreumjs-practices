@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
      const nfts = await nftbeta.nfts(
        // First arg: Class ID<string>
-       "",
+       "lnfts-testcore14c90dgy5gj9dczhlpcyww94dcupmxdduy408gu",
        // Second arg: The Owner Address<string>
        "")
     //  const allNfts = await nft.class("")

@@ -13,14 +13,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const newNFTCollection = NFT.IssueClass({
         issuer: issuer,
         //Unique for each user collection
-        symbol: "NEW2",
-        name: "My testing collection",
+        symbol: "LNFTS",
+        name: "Learning NFTs",
         description: "a new collection of NFTs",
-        uri: "http://test.com/",
+        uri: process.env.URIBASE,
         uriHash: "somehash",
         royaltyRate: "0",
         // burning = 0, freezing = 1,  whitelisting = 2,disable_sending = 3
-        features: [0, 1, 2, 3]
+        features: [2]
     });
 
     console.log(newNFTCollection);

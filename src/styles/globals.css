@@ -25,3 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+pre {
+  border-radius: 0.4em;
+  padding: 0.4em 0.2em;
+  background-color: #00000055;
+  color: white;
+  font-size: x-small;
+}

@@ -1,7 +1,8 @@
 import { useState } from "react";
 
 export type MenuItem = {
-	href: string, text: string,
+	href: string,
+	text: string,
 }
 
 export const menuItems = [
@@ -21,7 +22,8 @@ export const Header = () => {
 
   // Function to toggle the mobile menu
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(!isMobileMenuOpen);
+		console.log('toggleMobileMenu clicked');
+		setMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -29,16 +31,22 @@ export const Header = () => {
       <nav className="bg-transparent p-4">
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo text on the left */}
-          <a href="/" className="text-white text-lg font-semibold">
+          <a href={"/"} className="text-white text-lg font-semibold">
             Coreum App
           </a>
 
           {/* Mobile menu button (visible on small screens) */}
           {isMobileMenuOpen ? (
-						<ButtonCloseMenu onClick={toggleMobileMenu} />
-					):(
-						<ButtonOpenMenu onClick={toggleMobileMenu} />
-					)}
+						<button
+				      className="lg:hidden text-white "
+				      onClick={toggleMobileMenu}
+				    >x</button>
+          ) : (
+						<button
+				      className="lg:hidden text-white "
+				      onClick={toggleMobileMenu}
+				    >o</button>
+          )}
 
           {/* Mobile menu items (hidden or visible based on the state) */}
           <div className={`lg:hidden ${isMobileMenuOpen ? "block" : "hidden"}`}>
@@ -63,10 +71,13 @@ export const Header = () => {
   );
 };
 
+interface ButtonMenuProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}
 
-const ButtonCloseMenu = ({ onClick }: { onClick: any }) => {
+const ButtonCloseMenu: React.FC<ButtonMenuProps> = ({ onClick }) => {
   return (
-    <button
+		<button
       className="lg:hidden text-white focus:outline-none"
       onClick={onClick}
     >
@@ -89,7 +100,7 @@ const ButtonCloseMenu = ({ onClick }: { onClick: any }) => {
 };
 
 
-const ButtonOpenMenu = ({ onClick }: { onClick: any }) => {
+const ButtonOpenMenu: React.FC<ButtonMenuProps> = ({ onClick }) => {
   return (
     <button
       className="lg:hidden text-white focus:outline-none"

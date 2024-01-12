@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { buttonClass } from "@/styles/classNames";
+import { Header } from '@/comps/LayoutElements'
 
 const IssueNFTCollection = () => {
   const [receipt, setReceipt] = useState(null);
@@ -26,9 +27,10 @@ const IssueNFTCollection = () => {
 
 export default function Page() {
 
-  return (
+  return (<>
+    <Header />
     <div className="container mx-auto mt-10 px-4">
       <IssueNFTCollection />
     </div>
-  );
+  </>);
 }

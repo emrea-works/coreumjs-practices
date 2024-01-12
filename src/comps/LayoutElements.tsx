@@ -8,9 +8,9 @@ export type MenuItem = {
 export const menuItems = [
   { href: "issueNFT", text: "Issue NFT" },
   { href: "mintNFT", text: "Mint NFT" },
-  { href: "queryBalance", text: "Balance" },
+  // { href: "queryBalance", text: "Balance" },
   { href: "queryNFTCollection", text: "NFTs" },
-  { href: "whitelistingNFT", text: "White Listing" },
+  // { href: "whitelistingNFT", text: "White Listing" },
 ];
 
 export const Header = () => {
@@ -37,15 +37,9 @@ export const Header = () => {
 
           {/* Mobile menu button (visible on small screens) */}
           {isMobileMenuOpen ? (
-						<button
-				      className="lg:hidden text-white "
-				      onClick={toggleMobileMenu}
-				    >x</button>
+						<ButtonCloseMenu onClick={toggleMobileMenu} />
           ) : (
-						<button
-				      className="lg:hidden text-white "
-				      onClick={toggleMobileMenu}
-				    >o</button>
+						<ButtonOpenMenu onClick={toggleMobileMenu} />
           )}
 
           {/* Mobile menu items (hidden or visible based on the state) */}
@@ -100,7 +94,8 @@ const ButtonCloseMenu: React.FC<ButtonMenuProps> = ({ onClick }) => {
 };
 
 
-const ButtonOpenMenu: React.FC<ButtonMenuProps> = ({ onClick }) => {
+// const ButtonOpenMenu: React.FC<ButtonMenuProps> = ({ onClick }) => {
+function ButtonOpenMenu({ onClick }: { onClick: any }) {
   return (
     <button
       className="lg:hidden text-white focus:outline-none"

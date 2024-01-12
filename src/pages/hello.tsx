@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ButtonGo from '@/comps/ButtonGo'
+import { Header } from '@/comps/LayoutElements'
 
 const Hello = () => {
   const [receipt, setReceipt] = useState(null);
@@ -25,9 +26,10 @@ const Hello = () => {
 
 export default function Page() {
 
-  return (
+  return (<>
+    <Header />
     <div className="container mx-auto mt-10 sm:px-4">
       <Hello />
     </div>
-  );
+  </>);
 }

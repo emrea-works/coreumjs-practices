@@ -1,4 +1,5 @@
 import { useState } from "react";
+import QueryBalance from "@/comps/QueryBalance";
 
 export type MenuItem = {
 	href: string,
@@ -34,6 +35,10 @@ export const Header = () => {
           <a href={"/"} className="text-white text-lg font-semibold">
             Coreum App
           </a>
+
+					<div style={{zoom:'.75'}}>
+						<QueryBalance />
+					</div>
 
           {/* Mobile menu button (visible on small screens) */}
           {isMobileMenuOpen ? (

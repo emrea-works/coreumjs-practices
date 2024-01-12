@@ -8,7 +8,7 @@ export type MenuItem = {
 export const menuItems = [
   { href: "issueNFT", text: "Issue NFT" },
   { href: "mintNFT", text: "Mint NFT" },
-  // { href: "queryBalance", text: "Balance" },
+  { href: "queryBalance", text: "Balance" },
   { href: "queryNFTCollection", text: "NFTs" },
   // { href: "whitelistingNFT", text: "White Listing" },
 ];

@@ -1,50 +1,20 @@
-import { useState, useEffect } from "react";
-// import ButtonGo from '@/comps/ButtonGo'
 import { Header } from '@/comps/LayoutElements'
-// import { BalanceData } from '@/types/data'
 import QueryBalance from '@/comps/QueryBalance'
-
-// const QueryBalance = () => {
-//   const [receipt, setReceipt] = useState<BalanceData | undefined>(undefined)
-//
-//   const apiHandler = async () => {
-//     try {
-//       const response = await fetch("/api/queryBalance");
-//       const data = await response.json();
-//       setReceipt(data);
-//     } catch (error) {
-//       console.error("Error fetching data:", error);
-//     }
-//   };
-//
-//   // Assume you want to fetch data when the component mounts
-//   useEffect(() => {
-//     apiHandler();
-//   }, []);
-//
-//   return (
-//     <div className="space-y-4">
-//       <h1 className="text-4xl">Balance</h1>
-//       {/*<ButtonGo onClick={apiHandler} />*/}
-//       <div>{receipt && receipt.balance && receipt.balance.length > 0 ? (
-//         <p className="text-lg">{receipt.balance[0].amount / 1_000_000}
-//         {" "}<span className="text-sm opacity-60">{receipt.balance[0].denom}</span></p>
-//       ) : (
-//         <p>...</p>
-//       )}</div>
-//       {/*<pre>{receipt ? JSON.stringify(receipt, null, 2) : "{...}"}</pre>*/}
-//     </div>
-//   );
-// };
-
+import SendCore from '@/comps/SendCore'
 
 export default function Page() {
+
+  // const receipt = <QueryBalance onlyReceipt button={false} />
 
   return (<>
     <Header />
     <div className="container mx-auto mt-10 px-4">
-      <h1 className="text-4xl">Balance</h1>
-      <QueryBalance />
+      <h1 className="text-4xl mb-3">Wallet</h1>
+      <p className="text-xl">Balance</p>
+      <QueryBalance button />
+      <hr className="my-5 border-green-600" />
+      <SendCore />
+      {/*<pre>{typeof JSON.stringify(receipt)}</pre>*/}
     </div>
   </>);
 }

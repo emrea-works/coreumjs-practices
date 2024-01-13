@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { BalanceData } from "@/types/data";
+import ButtonGo from '@/comps/ButtonGo';
 
-const QueryBalance = () => {
+const QueryBalance = (
+  { button }: { button: boolean }
+) => {
   const [receipt, setReceipt] = useState<BalanceData | undefined>(undefined);
 
   const apiHandler = async () => {
@@ -19,7 +22,7 @@ const QueryBalance = () => {
     apiHandler();
   }, []);
 
-  return (
+  return (<>
     <span>
       {receipt && receipt.balance && receipt.balance.length > 0 ? (
         <>
@@ -30,7 +33,8 @@ const QueryBalance = () => {
         <>...</>
       )}
     </span>
-  );
+    {button && <ButtonGo text="Refresh" onClick={apiHandler} moreClasses="block mt-4" />}
+  </>)
 };
 
 export default QueryBalance;

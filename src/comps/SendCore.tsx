@@ -1,4 +1,4 @@
-import { useState, /* useEffect */ } from "react";
+import { useState, useEffect } from "react";
 import { inputClass } from '@/styles/classNames';
 import ButtonGo from '@/comps/ButtonGo';
 import type { BalanceData } from '@/types/data'
@@ -8,7 +8,7 @@ const SendCore = () => {
   const [receipt, setReceipt] = useState<BalanceData | undefined>(undefined);
   const [amount, setAmount] = useState<string | undefined>(undefined);
 
-  const apiHandler = async () => {
+  const handleSendCore = async () => {
     try {
       const response = await fetch("/api/sendCore");
       const data = await response.json();
@@ -18,24 +18,29 @@ const SendCore = () => {
     }
   };
 
-	function handleAmount(e: MouseEventHandler){
-		setAmount(e.target.value)
+	function handleAmount(event: React.ChangeEvent<HTMLInputElement>){
+		setAmount(event.target.value)
 	}
 
-  // Assume you want to fetch data when the component mounts
-  // useEffect(() => {
-  //   apiHandler();
-  // }, []);
+  useEffect(() => {
+    console.log("receipt of sent core");
+
+  }, [receipt])
 
   return (<div className="my-2">
 		<h1 className="text-2xl">Send Core</h1>
 		<label htmlFor="">
+      <p>To Address:</p>
 			<input type="text" className={`${inputClass} text-green-400`}
 				onChange={handleAmount}
 			/>
 		</label>
-		<ButtonGo text="Send" onClick={apiHandler} moreClasses="block mt-4" />
-		<pre>{receipt ? JSON.stringify(receipt, null, 2) : "{ ... }"}</pre>
+		<ButtonGo text="Send" onClick={handleSendCore} moreClasses="block mt-4" />
+    <h3 className="mt-4 text-xl">Sent Receipt</h3>
+    {/* Debug Area */}
+		<pre className="my-2">
+      {receipt ? JSON.stringify(receipt, null, 2) : "{ ... }"}
+    </pre>
   </div>);
 };
 

@@ -33,4 +33,5 @@ pre {
   background-color: #00000055;
   color: white;
   font-size: x-small;
+  overflow-x: scroll;
 }

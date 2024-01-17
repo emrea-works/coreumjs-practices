@@ -4,6 +4,8 @@ import SendCore from '@/comps/SendCore'
 
 export default function Page() {
 
+  // to address: testcore1yepaxacrll5cnshwxf0avpmle9j6m75m0tdgfc
+
   // const receipt = <QueryBalance onlyReceipt button={false} />
 
   return (<>

@@ -7,10 +7,10 @@ export type MenuItem = {
 }
 
 export const menuItems = [
-  { href: "issueNFT", text: "Issue NFT" },
-  { href: "mintNFT", text: "Mint NFT" },
-  { href: "queryBalance", text: "Balance" },
-  { href: "queryNFTCollection", text: "NFTs" },
+  // { href: "issueNFT", text: "Issue NFT" },
+  // { href: "mintNFT", text: "Mint NFT" },
+  { href: "wallet", text: "Wallet" },
+  // { href: "queryNFTCollection", text: "NFTs" },
   // { href: "whitelistingNFT", text: "White Listing" },
 ];
 
@@ -37,7 +37,7 @@ export const Header = () => {
           </a>
 
 					<div style={{zoom:'.75'}}>
-						<QueryBalance />
+						<QueryBalance button={false} />
 					</div>
 
           {/* Mobile menu button (visible on small screens) */}
@@ -74,7 +74,8 @@ interface ButtonMenuProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const ButtonCloseMenu: React.FC<ButtonMenuProps> = ({ onClick }) => {
+// const ButtonCloseMenu: React.FC<ButtonMenuProps> = ({ onClick }) => {
+const ButtonCloseMenu = ({ onClick }: ButtonMenuProps) => {
   return (
 		<button
       className="lg:hidden text-white focus:outline-none"

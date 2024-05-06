@@ -33,7 +33,7 @@ const QueryBalance = (
         <>...</>
       )}
     </span>
-    {button && <ButtonGo text="Refresh" onClick={apiHandler} moreClasses="block mt-4" />}
+    {button && <ButtonGo isDisabled={false} text="Refresh" onClick={apiHandler} moreClasses="block mt-4" />}
   </>)
 };
 

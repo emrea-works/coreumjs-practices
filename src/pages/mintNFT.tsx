@@ -17,7 +17,7 @@ const MintNFT = () => {
   return (
     <div className="space-y-4">
       <h2>Mint NFT</h2>
-      <ButtonGo onClick={apiHandler} />
+      <ButtonGo onClick={apiHandler} isDisabled={false} moreClasses="" text="Mint" />
       <pre>{receipt ? JSON.stringify(receipt, null, 2) : "{...}"}</pre>
     </div>
   );

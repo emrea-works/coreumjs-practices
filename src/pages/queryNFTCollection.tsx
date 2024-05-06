@@ -20,9 +20,10 @@ const QueryNFTCollection = () => {
       <form action="">
         <label>
           <input type="text" className="border rounded mb-4 p-2 bg-transparent " />
-        </label>        
+        </label>
         <label htmlFor="">
-          <ButtonGo onClick={apiHandler} /></label>
+          <ButtonGo onClick={apiHandler} isDisabled={false} moreClasses="" text="Query" />
+        </label>
       </form>
       <pre>{receipt ? JSON.stringify(receipt, null, 8) : "{...}"}</pre>
     </div>

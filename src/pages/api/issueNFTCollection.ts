@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         symbol: "LNFTS",
         name: "Learning NFTs",
         description: "a new collection of NFTs",
-        uri: process.env.URIBASE,
+        uri: process.env.URIBASE!,
         uriHash: "somehash",
         royaltyRate: "0",
         // burning = 0, freezing = 1,  whitelisting = 2,disable_sending = 3
